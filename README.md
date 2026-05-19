@@ -26,6 +26,6 @@ git clone https://github.com/nycu-acm/IDAG_Edit.git
 cd IDAG_Edit
 
 conda env create -f environment.yaml
-pip install torch==2.7.0+cu128 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
 conda activate IDAG_Edit
+pip install torch==2.7.0+cu128 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
 ```
