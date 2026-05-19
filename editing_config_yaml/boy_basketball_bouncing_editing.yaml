@@ -1,0 +1,68 @@
+# Model paths
+dreambooth_path: models/DreamBooth_LoRA/realisticVisionV60B1_v51VAE.safetensors
+motion_module: models/Motion_Module/v3_sd15_mm.ckpt
+model_config: configs/model_config/model_config.yaml
+
+# Data config
+video_path: resources/boy_basketball_bouncing.mp4
+mask_dir: resources/sam2_mask/boy_basketball_bouncing
+mask_orders: ['kid', 'ball']
+negative_prompt: ugly, deformed, noisy, blurry, distorted, out of focus, bad anatomy, extra limbs, poorly drawn face, poorly drawn hands, missing fingers
+inversion_prompt: A young boy in red dribbles a basketball on an outdoor court
+
+# Guidance configs
+app_guidance:
+ block_type: spatial
+ blocks:
+ - up_blocks.1
+ - up_blocks.2
+ cross_attn_blocks:
+ - up_blocks.1
+ - up_blocks.2
+ weight_each:
+ - 20000
+ - 10000
+temp_guidance:
+ blocks:
+ - up_blocks.1
+ - up_blocks.2
+ weight_each:
+ - 20000
+ - 10000
+cfg_scale: 7.5
+early_stop_epsilon: 1.0e-05
+grad_guidance_scale: 1.0
+grad_guidance_threshold: null
+# Editing prompts
+new_prompt:
+ - ["A batman in dark armored suit dribbles a soccer on an outdoor court", "batman in dark armored suit", "soccer"]
+null_inner_steps: 10
+num_inference_step: 50
+using_ellipse_mask: false
+multiframe_NT: true
+MutualSelfAttn_layers:
+- 7
+- 16
+MutualSelfAttn_steps:
+- 0
+- 50
+p2p_blend_word_base: null
+p2p_blend_word_new: null
+p2p_cross_is_replace_controller: false
+p2p_cross_replace_layers:
+- 0
+- 16
+p2p_cross_replace_steps: 0.8
+p2p_eq_params_words:
+- batman
+- soccer
+p2p_eq_params_values:
+- 3
+p2p_self_replace_steps: 0.5
+STDG_guide:
+- 0.5
+- 0.5
+- 0.0
+- 0.5
+vis_cross_attn: true
+        

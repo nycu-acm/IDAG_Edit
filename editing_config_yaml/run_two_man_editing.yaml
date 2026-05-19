@@ -1,0 +1,75 @@
+# model path
+dreambooth_path: models/DreamBooth_LoRA/realisticVisionV60B1_v51VAE.safetensors
+motion_module: models/Motion_Module/v3_sd15_mm.ckpt
+# model config
+model_config: configs/model_config/model_config.yaml
+
+# data config
+video_path: resources/run_two_man.mp4
+mask_dir: "./resources/sam2_mask/run_two_man"
+mask_orders: ['left_man','right_man']
+negative_prompt: ugly, deformed, noisy, blurry, distorted, out of focus, bad anatomy, extra limbs, poorly drawn face, poorly drawn hands, missing fingers
+inversion_prompt: Man in red hoodie and man in gray shirt are jogging in the forest
+
+# editing config
+app_guidance:
+  block_type: spatial
+  blocks:
+  - up_blocks.1
+  - up_blocks.2
+  cross_attn_blocks:
+  - up_blocks.1
+  - up_blocks.2
+  weight_each:
+  - 20000
+  - 10000
+temp_guidance:
+  blocks:
+  - up_blocks.1
+  - up_blocks.2
+  weight_each:
+  - 20000
+  - 10000
+cfg_scale: 7.5
+early_stop_epsilon: 1.0e-05
+grad_guidance_scale: 1.0
+grad_guidance_threshold: null
+# editing prompt
+new_prompt: 
+  - ["Spiderman in red-and-blue suit and Batman in black armored suit are jogging in the forest","Spiderman in red-and-blue suit", "Batman in black armored suit"]
+# null text optmize step
+null_inner_steps: 10
+num_inference_step: 50
+# using ellipse mask or not
+using_ellipse_mask: False
+# using multiframe null text embedding or not
+multiframe_NT: True
+# MutualSelfAttn layers config
+MutualSelfAttn_layers:
+- 7
+- 16
+MutualSelfAttn_steps:
+- 0
+- 50
+p2p_blend_word_base: null
+p2p_blend_word_new: null
+p2p_cross_is_replace_controller: false # true -> use replacement edit, but it can only be applied on prompts with the same length
+p2p_cross_replace_layers:
+- 0
+- 16
+p2p_cross_replace_steps: 0.8
+# editing key words
+p2p_eq_params_words:
+- Spiderman
+- Batman
+p2p_eq_params_values:
+- 3
+- 3
+p2p_self_replace_steps: 0.4 #batman use 0.4
+# STDG coeff
+STDG_guide:
+- 0.5
+- 0.5
+- 0.0
+- 0.5
+vis_cross_attn: true
