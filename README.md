@@ -100,6 +100,12 @@ IDAG_Edit/
 ├── LICENSE
 ```
 
+## Citation
+
+If you find IDAG_Edit useful, please cite our paper:
+
+```bibtex
+```
 
 ## Acknowledgements
 
