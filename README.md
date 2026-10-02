@@ -105,6 +105,16 @@ IDAG_Edit/
 If you find IDAG_Edit useful, please cite our paper:
 
 ```bibtex
+@INPROCEEDINGS{11630141,
+  author={Lin, Yuan-Zhih and Nguyen, Huu-Thang and Do, Huu-Phu and Shuai, Hong-Han and Huang, Ching-Chun},
+  booktitle={2026 IEEE International Conference on Image Processing (ICIP)}, 
+  title={IDAG-Edit: Multi-Object Video Editing Via Instance-Decoupled Attention and Guidance}, 
+  year={2026},
+  pages={1-6},
+  keywords={Videos;Modeling;Printing;Noise reduction;Text to video;Conferences;Equations;Timing;Calcium;Computers;Text-to-Video;Video Editing;Multi-Object Editing;Temporal Consistency},
+  doi={10.1109/ICIP61757.2026.11630141}
+}
+
 ```
 
 ## Acknowledgements
